@@ -8,7 +8,12 @@
 
 @font-face {
     font-family: 'font1';
-    src: url(./font/Almarai-Regular.ttf);
+    src: url(./font/font1/Almarai-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'font2';
+    src: url(./font/font2/Viga-Regular.ttf);
 }
 
 /* Généralités */
@@ -25,11 +30,16 @@ ul {
 /* header */
 .header-1 {
     font-family: 'font1';
-    height: 50px;
+    height: 95px;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 2;
 }
 
 .nav-bar {
     height: 100%;
+    box-shadow: 0px 0px 20px 10px black;
 }
 
 .nav-list {
@@ -37,20 +47,98 @@ ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
 }
 
 .nav-items {
-
     margin-top: 10px;
+    margin-bottom: 10px;
     margin-right: 30px;
     text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 1.1px;
+    letter-spacing: 2px;
 
 }
 .nav-items:hover {
     color: var(--color1);
     transition: 0.35s;
     
+}
+
+/* Main */
+/* compartment 1 */
+.banner-container {
+    height: 90vh;
+    background: url(./image/banner.jpg) center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ID-container {
+    background: white;
+    padding: 80px 60px;
+    text-align: center;
+    box-shadow: 0px 0px 15px 8px black;
+}
+
+.title-h1 {
+    font-family: 'font2';
+    font-size: 3rem;
+    position: relative;
+    padding-bottom: 30px;
+}
+.title-h1::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: rotate(90deg);
+    background: var(--color1);
+    border: 3px solid var(--color1);
+    height: 100px;
+
+}
+
+.subtitle {
+    font-family: 'font1';
+    padding-top: 50px;
+}
+
+/* About */
+.about-container {
+    font-family: 'font1';
+    background: var(--color1);
+    color: white;
+}
+
+.about-title {
+    text-align: center;
+    padding-top: 3%;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.about-me-container {
+    margin-top: 4%;
+    padding-bottom: 4%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.about-me-img {
+    background: url(./image/img-me.jpg) center/cover;
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+    margin-left: 10%;
+}
+
+.about-me {
+    font-size: 1.3rem;
+    width: 45%;
+    margin-right: 10%;
+    padding-top: 3%;
+    line-height: 2rem;
 }
