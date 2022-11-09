@@ -1,3 +1,23 @@
+// Menu
+
+const toggle = document.getElementById("toggle");
+const body = document.querySelector("body");
+const links = document.querySelectorAll(".link");
+
+console.log(links);
+
+toggle.addEventListener("click", () => {
+  body.classList.toggle("open");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    body.classList.toggle("open");
+  });
+});
+
+// Carrousel
+
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 const slider = document.querySelector(".slider");
