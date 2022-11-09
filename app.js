@@ -1,10 +1,7 @@
 // Menu
-
 const toggle = document.getElementById("toggle");
 const body = document.querySelector("body");
 const links = document.querySelectorAll(".link");
-
-console.log(links);
 
 toggle.addEventListener("click", () => {
   body.classList.toggle("open");
@@ -17,39 +14,86 @@ links.forEach((link) => {
 });
 
 // Carrousel
+class Carousel {
+  constructor(element, options = {}) {
+    this.element = element;
+    this.options = Object.assign(
+      {},
+      {
+        slideToScroll: 1,
+        slideVisible: 1,
+      },
+      options
+    );
+    let children = [].slice.call(element.children);
+    this.currentSlide = 0;
 
-const next = document.getElementById("next");
-const prev = document.getElementById("prev");
-const slider = document.querySelector(".slider");
-const img = document.querySelectorAll(".slider img");
+    this.root = this.createDivWithClass("carousel1");
+    this.panorama = this.createDivWithClass("carousel1__panorama");
 
-console.log(slider);
-console.log(img);
+    this.root.appendChild(this.panorama);
+    this.element.appendChild(this.root);
 
-let index = 0;
-console.log(img[index].naturalWidth + 50);
-let width = img[index].naturalWidth + 50;
+    this.items = children.map((child) => {
+      let item = this.createDivWithClass("carousel__item");
 
-console.log(width);
-console.log(index);
-
-next.addEventListener("click", () => {
-  index++;
-  slider.style.transform = `translate(${-index * width}px)`;
-  if (index === img.length - 3) {
-    next.classList.add("disable");
-  } else {
-    prev.classList.remove("disable");
+      item.appendChild(child);
+      this.panorama.appendChild(item);
+      return item;
+    });
+    this.setStyle();
+    this.createNavigation();
   }
-});
 
-prev.addEventListener("click", () => {
-  index--;
-  slider.style.transform = `translate(${-index * width}px)`;
-  console.log(index);
-  if (index === 0) {
-    prev.classList.add("disable");
-  } else {
-    next.classList.remove("disable");
+  createDivWithClass(className) {
+    let div = document.createElement("div");
+    div.setAttribute("class", className);
+    return div;
   }
+
+  setStyle() {
+    let ratio = this.items.length / this.options.slideVisible;
+    this.panorama.style.width = ratio * 100 + "%";
+    this.items.forEach(
+      (item) =>
+        (item.style.width = 100 / this.options.slideVisible / ratio + "%")
+    );
+  }
+
+  createNavigation() {
+    let nextBtn = this.createDivWithClass("carousel__next");
+    let prevBtn = this.createDivWithClass("carousel__prev");
+    this.root.appendChild(nextBtn);
+    this.root.appendChild(prevBtn);
+    nextBtn.addEventListener("click", this.next.bind(this));
+    prevBtn.addEventListener("click", this.prev.bind(this));
+  }
+
+  next() {
+    this.goToItem(this.currentSlide + this.options.slideToScroll);
+  }
+
+  prev() {
+    this.goToItem(this.currentSlide - this.options.slideToScroll);
+  }
+
+  goToItem(index) {
+    if (index < 0) {
+      index = this.items.length - this.options.slideVisible;
+    } else if (
+      index >= this.items.length ||
+      this.items[this.currentSlide + this.options.slideVisible] === undefined
+    ) {
+      index = 0;
+    }
+    let translateX = (index * -100) / this.items.length;
+    this.panorama.style.transform = "translate3d(" + translateX + "%, 0, 0)";
+    this.panorama.style.transition = "0.4s ease";
+    this.currentSlide = index;
+  }
+}
+
+new Carousel(document.querySelector("#carousel"), {
+  slideVisible: 3,
+  // slideToScroll: 3,
 });
