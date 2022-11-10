@@ -71,6 +71,77 @@ a {
     margin-bottom: 10%;
     font-size: 1.5rem;
 }
+/* loading */
+
+.loader-container {
+    background: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: loading 2s;
+    position: fixed;
+    z-index: 3;
+    visibility: hidden;
+}
+
+.circle-1 {
+    display: block;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 7px solid transparent;
+    border-top-color: var(--color1);
+    animation: spin 2s linear infinite;
+    
+}
+
+.circle-1::before, .circle-1::after  {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 7px solid transparent;
+}
+
+.circle-1::before {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    border-top-color: var(--color2);
+    animation: spin 3s linear infinite;
+}
+.circle-1::after {
+    top: 25px;
+    right: 25px;
+    left: 25px;
+    bottom: 25px;
+    border-top-color: var(--color3);
+    animation: spin 1.5s linear infinite;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+        
+    }
+}
+
 /* header */
 .test {
     height: 95px;

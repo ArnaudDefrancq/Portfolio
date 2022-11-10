@@ -93,13 +93,14 @@ class Carousel {
   }
 }
 
-const widthPage = window.innerWidth;
+let widthPage = window.innerWidth;
+console.log(widthPage);
 
 new Carousel(document.querySelector("#carousel1"), {
   slideVisible: 3,
 });
 
-if (widthPage === 834) {
+if (widthPage <= 834) {
   document.querySelector("#carousel1").classList.add("slider2");
   document.querySelector("#carousel2").classList.remove("slider2");
   new Carousel(document.querySelector("#carousel2"), {
@@ -107,7 +108,7 @@ if (widthPage === 834) {
   });
 }
 
-if (widthPage === 500) {
+if (widthPage <= 500) {
   document.querySelector("#carousel1").classList.add("slider2");
   document.querySelector("#carousel2").classList.add("slider2");
   document.querySelector("#carousel3").classList.remove("slider2");
