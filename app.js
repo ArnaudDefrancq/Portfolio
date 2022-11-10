@@ -93,7 +93,25 @@ class Carousel {
   }
 }
 
-new Carousel(document.querySelector("#carousel"), {
+const widthPage = window.innerWidth;
+
+new Carousel(document.querySelector("#carousel1"), {
   slideVisible: 3,
-  // slideToScroll: 3,
 });
+
+if (widthPage === 834) {
+  document.querySelector("#carousel1").classList.add("slider2");
+  document.querySelector("#carousel2").classList.remove("slider2");
+  new Carousel(document.querySelector("#carousel2"), {
+    slideVisible: 2,
+  });
+}
+
+if (widthPage === 500) {
+  document.querySelector("#carousel1").classList.add("slider2");
+  document.querySelector("#carousel2").classList.add("slider2");
+  document.querySelector("#carousel3").classList.remove("slider2");
+  new Carousel(document.querySelector("#carousel3"), {
+    slideVisible: 1,
+  });
+}
