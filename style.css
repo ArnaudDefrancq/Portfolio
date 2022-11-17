@@ -338,7 +338,6 @@ a {
 }
 
 .project-link-techno {
-    margin-top: 5%;
     text-align: center;
 }
 
@@ -457,11 +456,17 @@ footer {
     .items {
         margin: 2px;
     }
-    .carousel__next {
-        right: 50px;
+}
+
+@media screen and (max-width: 1323px) {
+    .project-link-container h3{
+        font-size: 1.1rem;
     }
-    .carousel__prev {
-        left: 50px;
+
+    .link {
+        font-size: 1rem;
+        height: 30px;
+        width: 30px;
     }
 }
 
@@ -469,6 +474,22 @@ footer {
     .about-me {
         padding: 0;;
     }
+    .project-link-container h3{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 1192px) {
+    .grid-project {
+        grid-template-columns: 2fr 2fr;
+    }
+
+    .project-link-container h3{
+        font-size: 1.3rem;
+    }
+
 }
 
 @media screen and (max-width: 1100px) {
@@ -492,14 +513,19 @@ footer {
     .items {
         margin: 2px;
     }
-    .imgs {
-        width: 250px;
-    }
-}
 
+}
 @media screen and (max-width: 1000px) {
     .about-me {
         margin-left: 2em;
+    }
+}
+
+@media screen and (max-width: 869px){
+    .project-link-container h3 {
+        width: 100%;
+        margin: 0;
+        font-size: 1rem;
     }
 }
 
@@ -534,18 +560,6 @@ footer {
         margin: 30px 0;
         width: 40%;
     }
-    .carousel2 {
-        margin: 8% 10%; 
-        height: 350px;
-        overflow: hidden;
-    }
-    .carousel__next, .carousel__prev {
-        top: 60%;
-        right: 30px;
-    }
-    .carousel__prev {
-        left: 30px;
-    }
 }
 
 
@@ -556,6 +570,14 @@ footer {
 
     .box-flex {
         width: 50%;
+    }
+
+    .grid-project {
+        grid-template-columns: 1fr;
+    }
+
+    .project-link-container h3 {
+        font-size: 1.3rem;
     }
 }
 
@@ -571,13 +593,6 @@ footer {
         margin: 20px auto;
         padding-top: 30px;
         text-align: justify;
-    }
-
-    .carousel__next {
-        right: 20px;
-    }
-    .carousel__prev {
-        left: 20px;
     }
 
 }
@@ -650,15 +665,6 @@ footer {
     .open .nav-list-2 {
         transform: translateY(0);
     }
-    .imgs {
-        width: 200px;
-    }
-    .carousel__next {
-        right: 15px;
-    }
-    .carousel__prev {
-        left: 15px;
-    }
 }
 
 @media screen and (max-width: 500px) {
@@ -678,14 +684,15 @@ footer {
     .subtitle {
         font-size: 1.3rem;
     }
-    .carousel3 {
-        height: 380px;
-        margin-top: 80px;
-        overflow: hidden;
+    .grid-project {
+        margin-left: 2em;
+        margin-right: 2em;
     }
-    .carousel__next, .carousel__prev {
-        top: 42%;
+
+    .box-flex {
+        width: 80%;
     }
+
 }
 
 @media screen and (max-width: 400px) {
@@ -701,7 +708,10 @@ footer {
         margin: 0 auto;
     }
     .box-flex {
-        width: 70%;
+        width: 80%;
+    }
+    .project-link-container h3 {
+        font-size: 1rem;
     }
     footer p{
         width: 80%;
